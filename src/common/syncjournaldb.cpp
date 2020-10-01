@@ -2325,10 +2325,4 @@ QList<QString> SyncJournalDb::getSyncModePaths()
     return list;
 }
 
-void SyncJournalDb::emitSyncStatusChanged(QString path, bool status)
-{
-    qWarning() << Q_FUNC_INFO << "Syncing status changed for: " << path;
-    emit syncStatusChanged(path, status);
-}
-
 } // namespace OCC
