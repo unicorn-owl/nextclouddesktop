@@ -414,7 +414,9 @@ CSYNC_EXCLUDE_TYPE ExcludedFiles::traversalPatternMatch(const char *path, ItemTy
         QFileInfo fi = QFileInfo(_localPath + path + "/.sync-exclude.lst");
         if (fi.isReadable()) {
             addInTreeExcludeFilePath(fi.absoluteFilePath());
-            loadExcludeFile(fi.absolutePath().toUtf8(), fi.absoluteFilePath());
+
+            const auto basePath = leftIncludeLast(fi.absoluteFilePath().toUtf8(), '/');
+            loadExcludeFile(basePath, fi.absoluteFilePath());
         }
     }
 
