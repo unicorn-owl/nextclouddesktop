@@ -326,8 +326,9 @@ bool ExcludedFiles::loadExcludeFile(const QByteArray & basePath, const QString &
     }
 
     // nothing to prepare if the user decided to not exclude anything
-    if(_allExcludes.size())
+    if(_allExcludes[basePath].size()){
         prepare(basePath);
+    }
 
     return true;
 }
